@@ -48,13 +48,4 @@ int main(){
 		}cout << endl;
 	}//4# Akhir Matrix R * W
 }
- cout << endl ;
- // Hasil Akhir
- cout <<  "HASIL AKHIR   : "<<endl ;
- for (int i = 0;i<3;i++){
- 	cout <<"Hasil" <<i+1<<" = " <<Rwa[i][0] + Rwa [i] [1] + Rwa[i][2]+ Rwa[i][4]<< endl;
-}
-cout <<endl;
-}
- }
- 
+
