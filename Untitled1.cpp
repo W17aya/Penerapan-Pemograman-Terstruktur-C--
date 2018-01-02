@@ -3,49 +3,69 @@
 using namespace std;
 
 int main(){
-	cout.setf(ios::fixed); cout.setf(ios::showpoint); cout.precision(4);
-	// 1# Matrix X - Isi dan Tampilan Data
-	cout << "MATRIKS X : "<<endl;
-	double ac[3][5]={ {4,4,5,3,3},{3,3,4,2,3},{5,4,2,2,2} };
+	// DEKLARASI VARIABEL
+	double a[3][5]={{4,4,5,3,3},{3,3,4,2,3},{5,4,2,2,2}};
+		
+	double w[5]={5,3,4,4,2};
+	double ha1,ha2,ha3;
+	
+	// SETTING PRESISI DESIMAL
+	cout.setf(ios::fixed);cout.setf(ios::showpoint);cout.precision(4);
+			
+	// MENAMPILKAN NILAI
+	cout << "MATRIKS X :"<<endl;
 	for(int i=0;i<3;i++){
 		for(int j=0;j<5;j++){
-			cout << ac[i][j] << " | ";
-		}cout<<endl;
-	}// Akhir dari Matrix X
-	
-	// Mengambil nilai max tiap krateria
-	cout <<endl<< "MATRIKS R : "<<endl;	
-	double mc[5];
-	for(int i=0;i<5;i++){
-		mc[i+1]=max(ac[0][i],max(ac[1][i],ac[2][i]));
+			cout<< a[i][j] <<" | ";
+		}
+		cout<<endl;
 	}
 	
-	// 2# Matrix R - Nilai dan Menampilkan Data
-	double Rac[3][5]={ {(ac[0][0]/mc[1]),(ac[0][1]/mc[2]),(ac[0][2]/mc[3]),(ac[0][3]/mc[4]),(ac[0][4]/mc[5])}, 
-					   {(ac[1][0]/mc[1]),(ac[1][1]/mc[2]),(ac[1][2]/mc[3]),(ac[1][3]/mc[4]),(ac[1][4]/mc[5])},
-					   {(ac[2][0]/mc[1]),(ac[2][1]/mc[2]),(ac[2][2]/mc[3]),(ac[2][3]/mc[4]),(ac[2][4]/mc[5])} 
-	};
-	
-	for(int i=0;i<3;i++){
-		for(int j=0;j<5;j++){
-			cout << Rac[i][j] << " | ";
-		}cout<<endl;
-	}// Akhir Matrix R
-	
-	// 3# Bobot W - Tampilkan Nilai
-	cout <<endl<< "BOBOT W : "<<endl;
-	double w[5]={5,3,4,4,2};
+	// MENAMPILKAN MATRIX R
+	cout << endl;
+	cout << "MATRIKS R :"<<endl;
+	double mc[5];
 	for(int i=0;i<5;i++){
-		cout << w[i]<<" | ";
-	}cout <<endl;//Akhir dari Bobot W
+		mc[i+1]=max(a[0][i],max(a[1][i],a[2][i]));
+	}
+	cout << endl;
 	
-	// 4# Matrix R * W
-	cout <<endl<< "MATRIKS R * W : "<<endl; 
-	double RWac[3][5];
+	double Ra[3][5]={	{(a[0][0]/mc[1]),(a[0][1]/mc[2]),(a[0][2]/mc[3]),(a[0][3]/mc[4]),(a[0][4]/mc[5])}, 
+						{(a[1][0]/mc[1]),(a[1][1]/mc[2]),(a[1][2]/mc[3]),(a[1][3]/mc[4]),(a[1][4]/mc[5])},
+						{(a[2][0]/mc[1]),(a[2][1]/mc[2]),(a[2][2]/mc[3]),(a[2][3]/mc[4]),(a[2][4]/mc[5])} 
+	};
 	for(int i=0;i<3;i++){
 		for(int j=0;j<5;j++){
-			RWac[i][j]=Rac[i][j]*w[j]; cout <<RWac[i][j]<<" | ";
-		}cout << endl;
-	}//4# Akhir Matrix R * W
+			cout << Ra[i][j]<< " | ";
+		}
+		cout<<endl;
+	}
+	cout<<endl;
+	
+	// MENAMPILKAN NILAI W
+	cout << "BOBOT W :"<<endl;
+	for(int i=0;i<5;i++){
+		cout<< w[i] <<" | ";
+	}
+	cout << endl;
+	cout << endl;
+	
+	//MENAMPILKAN HASIL R*W
+	cout << "MATRIKS R * W :"<<endl;
+		double RWa[3][5];
+	for(int i=0;i<3;i++){
+		for(int j=0;j<5;j++){
+			RWa[i][j]=Ra[i][j]*w[j];
+			cout<< RWa[i][j]<<" | ";
+		}
+		cout<<endl;
+	}
+	cout << endl;
+	
+	//Hasil Akhir
+	cout << "HASIL AKHIR  :"<<endl;
+	for(int i=0;i<3;i++){
+		cout<<"Hasil "<<i+1<<" = "<<RWa[i][0]+RWa[i][1]+RWa[i][2]+RWa[i][3]+RWa[i][4]<<endl;	
+	}
+	cout<<endl;
 }
-
